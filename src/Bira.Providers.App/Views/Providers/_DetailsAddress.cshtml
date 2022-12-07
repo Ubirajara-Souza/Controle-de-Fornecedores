@@ -1,0 +1,74 @@
+﻿@model Bira.Providers.App.ViewModels.ProviderViewModel
+
+<div style="padding-top: 20px">
+    <div>
+        <hr />
+        <h4>Endereço</h4>
+    </div>
+
+    @if (Model != null)
+    {
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.Street)
+                        </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.Number)
+                        </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.Complement)
+                        </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.Neighborhood)
+                        </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.ZipCode)
+                        </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.City)
+                        </th>
+                        <th>
+                        @Html.DisplayNameFor(model => model.Address.State)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.Street)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.Number)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.Complement)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.Neighborhood)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.ZipCode)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.City)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(model => model.Address.State)
+                    </td>
+                    <td>
+                        <a supress-by-action="Edit,GetAddress" asp-action="UpdateAddress" asp-route-id="@Model.Id" class="btn btn-info" data-modal="">
+                            <span title="Editar" class="fa fa-pencil-alt"></span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+    }
+
+</div>
+
+<script>
+    SetModal();
+</script>

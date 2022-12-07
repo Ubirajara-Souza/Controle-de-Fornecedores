@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Bira.Providers.App.ViewModels.ProductViewModel>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Provider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.Image" alt="@item.Image" style="width: 70px; height: 100px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Provider.Name)
+                    </td>
+                    <td>
+                        @item.Value.ToString("C")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+
+                    <td class="text-right">
+                        <a class="btn btn-warning" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam></a>
+                        <a disable-by-claim-name="Product" disable-by-claim-value="Edit" class="btn btn-info" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                        <a disable-by-claim-name="Product" disable-by-claim-value="Delete" class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam> </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
